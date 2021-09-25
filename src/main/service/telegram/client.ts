@@ -1,5 +1,3 @@
-import axios from "axios"
-
 interface HttpResponse<T = any> {
     data: T
     status: number
