@@ -1,5 +1,5 @@
-import { Fetcher, ChainId, Token } from '@pancakeswap/sdk';
 import { JsonRpcProvider } from '@ethersproject/providers';
+import { Fetcher, ChainId, Token } from '@pancakeswap/sdk';
 
 export class BscPriceProvider {
 

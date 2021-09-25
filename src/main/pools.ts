@@ -15,7 +15,7 @@ export interface Token {
 }
 
 export const POOLS: Pool[] = ((): Pool[] => {
-    let arr: Pool[] = []
+    const arr: Pool[] = []
     poolsData.forEach(element => {
         arr.push(element)
     });

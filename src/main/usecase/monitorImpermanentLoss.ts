@@ -21,7 +21,7 @@ export class ImpermanentLossMonitor {
 
     async monitor(pool: Pool) {
         // first slice queries all prices
-        let prices: Map<PoolToken, Promise<string>> = new Map()
+        const prices: Map<PoolToken, Promise<string>> = new Map()
         pool.weightedTokens.forEach((_, key: PoolToken) => {
             prices.set(key, this.priceProvider.get(key.address))
         })

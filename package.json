@@ -5,7 +5,8 @@
   "main": "src/main/main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "lint": "eslint . --ext .ts --fix"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
@@ -19,6 +20,10 @@
     "web3": "^1.5.3"
   },
   "devDependencies": {
-    "@types/node": "^16.9.6"
+    "@types/node": "^16.9.6",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.2"
   }
 }

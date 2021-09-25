@@ -1,4 +1,5 @@
 import chains from '../../config/chains.json';
+
 import { BscPriceProvider } from './service/price/bsc/priceProvider';
 
 interface Chain {
@@ -7,7 +8,7 @@ interface Chain {
     readonly pivot_token: string
 }
 
-export interface PriceProvider {
+interface PriceProvider {
 
     get: (tokenAddress: string) => Promise<string>
 }
