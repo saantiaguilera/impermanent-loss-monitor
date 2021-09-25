@@ -1,0 +1,46 @@
+[
+    {
+        "name": "BTCB/WETH",
+        "chain": 56,
+        "threshold": 10,
+        "tokens": [
+            {
+                "name": "BTCB",
+                "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+                "weight": 0.5,
+                "startPrice": 43000
+            },
+            {
+                "name": "WETH",
+                "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+                "weight": 0.5,
+                "startPrice": 3100
+            }
+        ]
+    },
+    {
+        "name": "renBTC/pBTC/BTCB",
+        "chain": 56,
+        "threshold": 10,
+        "tokens": [
+            {
+                "name": "renBTC",
+                "address": "0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c",
+                "weight": 0.333,
+                "startPrice": 43000
+            },
+            {
+                "name": "BTCB",
+                "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+                "weight": 0.333,
+                "startPrice": 43000
+            },
+            {
+                "name": "pBTC",
+                "address": "0xeD28A457A5A76596ac48d87C0f577020F6Ea1c4C",
+                "weight": 0.333,
+                "startPrice": 43000
+            }
+        ]
+    }
+]
