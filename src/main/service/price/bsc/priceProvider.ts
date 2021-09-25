@@ -12,6 +12,10 @@ export class BscPriceProvider {
     }
 
     async get(address: string): Promise<string> {
+        if (address == this.pivotToken.address) {
+            return "1" // pivot is this, so value is 1
+        }
+
         const token = await Fetcher.fetchTokenData(
             ChainId.MAINNET,
             address,

@@ -2,7 +2,7 @@ import { Pool } from "../domain/pool"
 import { PoolToken } from "../domain/poolToken"
 
 interface MessageRepository {
-    sendMessage: (msg: string) => Promise<any>
+    sendMessage: (msg: string) => Promise<void>
 }
 
 interface PriceProvider {
@@ -19,7 +19,7 @@ export class ImpermanentLossMonitor {
         this.messager = messager
     }
 
-    async monitor(pool: Pool) {
+    async monitor(pool: Pool): Promise<void> {
         // first slice queries all prices
         const prices: Map<PoolToken, Promise<string>> = new Map()
         pool.weightedTokens.forEach((_, key: PoolToken) => {
@@ -33,7 +33,7 @@ export class ImpermanentLossMonitor {
         let nom = 1;
         let den = 0;
         for (const [key, value] of pool.weightedTokens) {
-            const currPrice: number = parseFloat(await prices.get(key)!)
+            const currPrice: number = parseFloat(await prices.get(key) ?? "0")
             const diff: number = currPrice / key.startPrice
 
             nom *= Math.pow(diff, value)
@@ -41,6 +41,7 @@ export class ImpermanentLossMonitor {
         }
         const il: number = Math.abs((nom / den) - 1)
 
+        console.info(`[${pool.name} LP] impermanent loss: ${(il * 100).toFixed(4)}`)
         if ((il * 100) >= pool.threshold) {
             await this.messager.sendMessage(`[${pool.name} LP] Impermanent loss is higher than threshold (${pool.threshold}%): ${(il * 100).toFixed(2)}%`)
         }

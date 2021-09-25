@@ -1,45 +1,20 @@
 [
     {
-        "name": "BTCB/WETH",
+        "name": "CAKE/BNB",
         "chain": 56,
-        "threshold": 10,
+        "threshold": 2,
         "tokens": [
             {
-                "name": "BTCB",
-                "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+                "name": "CAKE",
+                "address": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
                 "weight": 0.5,
-                "startPrice": 43000
+                "startPrice": 18.5
             },
             {
-                "name": "WETH",
-                "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+                "name": "WBNB",
+                "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
                 "weight": 0.5,
-                "startPrice": 3100
-            }
-        ]
-    },
-    {
-        "name": "renBTC/pBTC/BTCB",
-        "chain": 56,
-        "threshold": 10,
-        "tokens": [
-            {
-                "name": "renBTC",
-                "address": "0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c",
-                "weight": 0.333,
-                "startPrice": 43000
-            },
-            {
-                "name": "BTCB",
-                "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-                "weight": 0.333,
-                "startPrice": 43000
-            },
-            {
-                "name": "pBTC",
-                "address": "0xeD28A457A5A76596ac48d87C0f577020F6Ea1c4C",
-                "weight": 0.333,
-                "startPrice": 43000
+                "startPrice": 352.25
             }
         ]
     }

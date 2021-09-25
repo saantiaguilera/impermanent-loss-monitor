@@ -12,7 +12,11 @@ async function main() {
     const tgClient: TelegramClient = new TelegramClient(axios, TELEGRAM_ACCESS_TOKEN, TELEGRAM_CHAT_ID)
 
     POOLS.forEach(pool => {
-        const provider = CHAIN_PROVIDERS.get(pool.chain)!
+        const provider = CHAIN_PROVIDERS.get(pool.chain)
+        if (provider == undefined) {
+            throw new Error("unsupported chain")
+        }
+        
         const uc = new ImpermanentLossMonitor(provider, tgClient)
 
         uc.monitor(new Pool(pool.name, pool.threshold, pool.tokens.reduce((map: Map<PoolToken, number>, e: Token) => {

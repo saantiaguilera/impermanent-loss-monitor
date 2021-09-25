@@ -1,11 +1,11 @@
-interface HttpResponse<T = any> {
+interface HttpResponse<T = unknown> {
     data: T
     status: number
 }
 
 interface HttpClient {
 
-    post<T = any, R = HttpResponse<T>>(url: string, data?: any, config?: any): Promise<R>
+    post<T = unknown, R = HttpResponse<T>>(url: string, data?: unknown, config?: unknown): Promise<R>
 }
 
 export class TelegramClient {
@@ -21,7 +21,7 @@ export class TelegramClient {
         this.chatId = chatId
     }
 
-    async sendMessage(msg: string) {
+    async sendMessage(msg: string): Promise<void> {
         await this.httpClient.post(this.url, {
             chat_id: this.chatId,
             text: msg,
