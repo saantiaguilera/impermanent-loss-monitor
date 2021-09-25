@@ -2,21 +2,15 @@ import chains from '../../config/chains.json';
 
 import { BscPriceProvider } from './service/price/bsc/priceProvider';
 
-interface Chain {
-    readonly id: number
-    readonly node_url: string
-    readonly pivot_token: string
-}
-
 interface PriceProvider {
 
     get: (tokenAddress: string) => Promise<string>
 }
 
-export const CHAIN_PROVIDERS: Map<number, PriceProvider> = ((): Map<number, PriceProvider> => {
-    const bscProvider: Chain = chains["bsc"]
+const BSC_PROVIDER = chains["bsc"]
 
+export const CHAIN_PROVIDERS: Map<number, PriceProvider> = ((): Map<number, PriceProvider> => {
     const map: Map<number, PriceProvider> = new Map()
-    map.set(bscProvider.id, new BscPriceProvider(bscProvider.node_url, bscProvider.pivot_token))
+    map.set(BSC_PROVIDER.id, new BscPriceProvider(BSC_PROVIDER.node_url, BSC_PROVIDER.pivot_token))
     return map
 })()
